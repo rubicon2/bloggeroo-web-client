@@ -1,14 +1,11 @@
 import Root from './components/root';
 import BlogsPage from './components/blogs/blogsPage';
 import BlogPage from './components/blogs/blogPage';
-import NewBlogPage from './components/blogs/newBlogPage';
 import ErrorPage from './components/errorPage';
 import CommentsPage from './components/comments/commentsPage';
 import CommentPage from './components/comments/commentPage';
-import LogInPage from './components/logInPage';
 import UsersPage from './components/users/usersPage';
 import UserPage from './components/users/userPage';
-import NewUserPage from './components/users/newUserPage';
 
 import blogsLoader from './loaders/blogsLoader';
 import blogLoader from './loaders/blogLoader';
@@ -31,64 +28,45 @@ export default function AppRouter() {
     return createBrowserRouter([
       {
         path: '/',
-        Component: Outlet,
-        ErrorBoundary: ErrorPage,
+        Component: Root,
         children: [
           {
-            index: true,
-            Component: LogInPage,
-          },
-          {
-            path: '/',
-            Component: Root,
+            ErrorBoundary: ErrorPage,
             children: [
               {
-                ErrorBoundary: ErrorPage,
-                children: [
-                  {
-                    index: true,
-                    Component: BlogsPage,
-                    loader: blogsLoader(accessRef),
-                  },
-                  {
-                    path: 'blogs',
-                    Component: BlogsPage,
-                    loader: blogsLoader(accessRef),
-                  },
-                  {
-                    path: 'blogs/new',
-                    Component: NewBlogPage,
-                  },
-                  {
-                    path: 'blogs/:blogId',
-                    Component: BlogPage,
-                    loader: blogLoader(accessRef),
-                  },
-                  {
-                    path: 'comments',
-                    Component: CommentsPage,
-                    loader: commentsLoader(accessRef),
-                  },
-                  {
-                    path: 'comments/:commentId',
-                    Component: CommentPage,
-                    loader: commentLoader(accessRef),
-                  },
-                  {
-                    path: 'users',
-                    Component: UsersPage,
-                    loader: usersLoader(accessRef),
-                  },
-                  {
-                    path: 'users/new',
-                    Component: NewUserPage,
-                  },
-                  {
-                    path: 'users/:userId',
-                    Component: UserPage,
-                    loader: userLoader(accessRef),
-                  },
-                ],
+                index: true,
+                Component: BlogsPage,
+                loader: blogsLoader(accessRef),
+              },
+              {
+                path: 'blogs',
+                Component: BlogsPage,
+                loader: blogsLoader(accessRef),
+              },
+              {
+                path: 'blogs/:blogId',
+                Component: BlogPage,
+                loader: blogLoader(accessRef),
+              },
+              {
+                path: 'comments',
+                Component: CommentsPage,
+                loader: commentsLoader(accessRef),
+              },
+              {
+                path: 'comments/:commentId',
+                Component: CommentPage,
+                loader: commentLoader(accessRef),
+              },
+              {
+                path: 'users',
+                Component: UsersPage,
+                loader: usersLoader(accessRef),
+              },
+              {
+                path: 'users/:userId',
+                Component: UserPage,
+                loader: userLoader(accessRef),
               },
             ],
           },
