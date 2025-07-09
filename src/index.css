@@ -1,3 +1,11 @@
+/* My variables! */
+:root {
+  --theme-text-color: #213547;
+  --theme-main-color: rgb(32, 133, 240);
+  --theme-grey: rgb(0, 0, 0, 0.1);
+  --theme-shadow: rgb(0, 0, 0, 0.1);
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -54,11 +62,6 @@ h1 {
 }
 
 /* My Stuff */
-:root {
-  --theme-main-color: rgb(32, 133, 240);
-  --theme-grey: rgb(0, 0, 0, 0.1);
-  --theme-shadow: rgb(0, 0, 0, 0.1);
-}
 
 #root {
   min-height: 100vh;
