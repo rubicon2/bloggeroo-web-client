@@ -4,7 +4,7 @@ import responseToJsend from '../ext/responseToJsend';
 export default function commentLoader(accessRef) {
   return async ({ params }) => {
     const { response, fetchError } = await authFetch(
-      `${import.meta.env.VITE_SERVER_URL}/admin/comments/${params.commentId}`,
+      `${import.meta.env.VITE_SERVER_URL}/comments/${params.commentId}`,
       accessRef,
     );
     if (fetchError) throw fetchError;

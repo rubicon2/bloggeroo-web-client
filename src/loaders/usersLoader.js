@@ -28,7 +28,7 @@ export default function usersLoader(accessRef) {
     });
     const searchParamsStr = objToSearchStr(searchParamsObj);
     const { response, fetchError } = await authFetch(
-      `${import.meta.env.VITE_SERVER_URL}/admin/users?${searchParamsStr}`,
+      `${import.meta.env.VITE_SERVER_URL}/users?${searchParamsStr}`,
       accessRef,
     );
     if (fetchError) throw fetchError;

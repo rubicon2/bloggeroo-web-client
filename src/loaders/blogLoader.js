@@ -8,11 +8,11 @@ export default function blogLoader(accessRef) {
   // If I navigate to a bad link inside the app by making the Links incorrect, then it works as expected.
   return async ({ params }) => {
     const blogPromise = authFetch(
-      `${import.meta.env.VITE_SERVER_URL}/admin/blogs/${params.blogId}`,
+      `${import.meta.env.VITE_SERVER_URL}/blogs/${params.blogId}`,
       accessRef,
     );
     const commentsPromise = authFetch(
-      `${import.meta.env.VITE_SERVER_URL}/admin/comments?blogId=${params.blogId}&orderBy=createdAt&orderBy=id&sortOrder=desc`,
+      `${import.meta.env.VITE_SERVER_URL}/comments?blogId=${params.blogId}&orderBy=createdAt&orderBy=id&sortOrder=desc`,
       accessRef,
     );
 

@@ -30,7 +30,7 @@ export default function blogsLoader(accessRef) {
     });
     const searchParamsStr = objToSearchStr(searchParamsObj);
     const { response, fetchError } = await authFetch(
-      `${import.meta.env.VITE_SERVER_URL}/admin/blogs?${searchParamsStr}`,
+      `${import.meta.env.VITE_SERVER_URL}/blogs?${searchParamsStr}`,
       accessRef,
     );
     if (fetchError) throw fetchError;

@@ -28,7 +28,7 @@ export default function commentsLoader(accessRef) {
     });
     const searchParamsStr = objToSearchStr(searchParamsObj);
     const { response, fetchError } = await authFetch(
-      `${import.meta.env.VITE_SERVER_URL}/admin/comments?${searchParamsStr}`,
+      `${import.meta.env.VITE_SERVER_URL}/comments?${searchParamsStr}`,
       accessRef,
     );
     if (fetchError) throw fetchError;
