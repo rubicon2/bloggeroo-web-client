@@ -1,18 +1,19 @@
 import Root from './components/root';
+import LoginPage from './components/logInPage';
 import BlogsPage from './components/blogs/blogsPage';
 import BlogPage from './components/blogs/blogPage';
 import ErrorPage from './components/errorPage';
 import CommentsPage from './components/comments/commentsPage';
 import CommentPage from './components/comments/commentPage';
-import UsersPage from './components/users/usersPage';
 import UserPage from './components/users/userPage';
+import MyProfilePage from './components/users/myProfilePage';
 
 import blogsLoader from './loaders/blogsLoader';
 import blogLoader from './loaders/blogLoader';
 import commentsLoader from './loaders/commentsLoader';
 import commentLoader from './loaders/commentLoader';
-import usersLoader from './loaders/usersLoader';
 import userLoader from './loaders/userLoader';
+import myProfileLoader from './loaders/myProfileLoader';
 
 import { AccessContext } from './contexts/AppContexts';
 
@@ -41,6 +42,11 @@ export default function AppRouter() {
               {
                 path: 'log-in',
                 Component: LoginPage,
+              },
+              {
+                path: 'my-profile',
+                Component: MyProfilePage,
+                loader: myProfileLoader(accessRef),
               },
               {
                 path: 'blogs',
