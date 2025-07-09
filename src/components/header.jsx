@@ -24,7 +24,7 @@ export default function Header() {
   return (
     <HeaderBackground>
       <HeaderContainer>
-        <h1>Bloggeroo Admin</h1>
+        <h1>My Food Blog</h1>
       </HeaderContainer>
     </HeaderBackground>
   );
