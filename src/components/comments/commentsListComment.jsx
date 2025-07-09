@@ -7,6 +7,8 @@ import { AccessContext } from '../../contexts/AppContexts';
 import authFetch from '../../ext/authFetch';
 import responseToJsend from '../../ext/responseToJsend';
 import dateTimeFormatter from '../../ext/dateTimeFormatter';
+import decodeJwt from '../../ext/decodeJwt';
+
 import { Link } from 'react-router';
 import { useContext, useState } from 'react';
 import styled from 'styled-components';
@@ -33,6 +35,9 @@ export default function CommentsListComment({
   const [error, setError] = useState(null);
   const [validationErrors, setValidationErrors] = useState(null);
   const [isFetching, setIsFetching] = useState(false);
+
+  // So can display edit and delete buttons only for the user's own comments.
+  const user = decodeJwt(accessRef.current);
 
   async function createReply(event) {
     event.preventDefault();
@@ -96,21 +101,25 @@ export default function CommentsListComment({
       ) : (
         <>
           <ListItemButtonsContainer>
-            <Link to={`/comments/${comment.id}`}>
-              <GeneralButton type="button">Edit</GeneralButton>
-            </Link>
+            {comment.ownerId === user.id && (
+              <Link to={`/comments/${comment.id}`}>
+                <GeneralButton type="button">Edit</GeneralButton>
+              </Link>
+            )}
             <GeneralButton
               type="button"
               onClick={() => setActiveComment(comment)}
             >
               Reply
             </GeneralButton>
-            <DeleteButton
-              url={`${import.meta.env.VITE_SERVER_URL}/comments/${comment.id}`}
-              onDelete={onDelete}
-            >
-              Delete
-            </DeleteButton>
+            {comment.ownerId === user.id && (
+              <DeleteButton
+                url={`${import.meta.env.VITE_SERVER_URL}/comments/${comment.id}`}
+                onDelete={onDelete}
+              >
+                Delete
+              </DeleteButton>
+            )}
           </ListItemButtonsContainer>
         </>
       )}
