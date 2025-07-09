@@ -28,7 +28,7 @@ export default function BlogPage() {
     event.preventDefault();
     setIsFetching(true);
     const { response, fetchError } = await authFetch(
-      `${import.meta.env.VITE_SERVER_URL}/admin/comments?blogId=${blog.id}`,
+      `${import.meta.env.VITE_SERVER_URL}/comments?blogId=${blog.id}`,
       accessRef,
       {
         method: 'post',

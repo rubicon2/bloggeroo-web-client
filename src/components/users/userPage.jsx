@@ -41,7 +41,7 @@ export default function UserPage() {
     event.preventDefault();
     setIsFetching(true);
     const { response, fetchError } = await authFetch(
-      `${import.meta.env.VITE_SERVER_URL}/admin/users/${user.id}`,
+      `${import.meta.env.VITE_SERVER_URL}/users/${user.id}`,
       accessRef,
       {
         method: 'put',
@@ -74,7 +74,7 @@ export default function UserPage() {
           <MobileMarginContainer>
             <PageTitleBar title={user.email}>
               <DeleteButton
-                url={`${import.meta.env.VITE_SERVER_URL}/admin/users/${user.id}`}
+                url={`${import.meta.env.VITE_SERVER_URL}/users/${user.id}`}
                 onDelete={() => navigate('/users')}
               >
                 Delete

@@ -26,7 +26,7 @@ export default function CommentPage() {
     event.preventDefault();
     setIsFetching(true);
     const { response, fetchError } = await authFetch(
-      `${import.meta.env.VITE_SERVER_URL}/admin/comments/${comment.id}`,
+      `${import.meta.env.VITE_SERVER_URL}/comments/${comment.id}`,
       accessRef,
       {
         method: 'put',
@@ -58,7 +58,7 @@ export default function CommentPage() {
           <MobileMarginContainer>
             <PageTitleBar title={`Edit comment by ${comment.owner.name}`}>
               <DeleteButton
-                url={`${import.meta.env.VITE_SERVER_URL}/admin/comments/${comment.id}`}
+                url={`${import.meta.env.VITE_SERVER_URL}/comments/${comment.id}`}
                 onDelete={() => navigate('/comments')}
               >
                 Delete

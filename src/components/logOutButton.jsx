@@ -18,7 +18,7 @@ export default function LogOutButton() {
       // Tell server this user has logged out and give refresh token so it can be added to revoke list.
       // Server will clear refresh token from cookie. Need to return errors if it fails.
       const response = await fetch(
-        `${import.meta.env.VITE_SERVER_URL}/admin/account/log-out`,
+        `${import.meta.env.VITE_SERVER_URL}/account/log-out`,
         {
           method: 'post',
           mode: 'cors',

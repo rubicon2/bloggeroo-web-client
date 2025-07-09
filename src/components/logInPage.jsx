@@ -49,7 +49,7 @@ export default function LogInPage() {
     setIsFetching(true);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_SERVER_URL}/admin/account/log-in`,
+        `${import.meta.env.VITE_SERVER_URL}/account/log-in`,
         {
           method: 'post',
           // Need this, otherwise cookie header in response is ignored by browser.

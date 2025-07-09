@@ -106,7 +106,7 @@ export default function CommentsListComment({
               Reply
             </GeneralButton>
             <DeleteButton
-              url={`${import.meta.env.VITE_SERVER_URL}/admin/comments/${comment.id}`}
+              url={`${import.meta.env.VITE_SERVER_URL}/comments/${comment.id}`}
               onDelete={onDelete}
             >
               Delete
