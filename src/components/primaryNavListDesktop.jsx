@@ -20,18 +20,18 @@ export default function PrimaryNavListDesktop({ isLoggedIn }) {
       {isLoggedIn ? (
         <>
           <li>
-            <NavButton as={Link} to="/blogs">
+            <NavButton as={Link} to="/">
               Blogs
             </NavButton>
           </li>
           <li>
-            <NavButton as={Link} to="/comments">
-              Comments
+            <NavButton as={Link} to="/my-comments">
+              My Comments
             </NavButton>
           </li>
           <li>
-            <NavButton as={Link} to="/users">
-              Users
+            <NavButton as={Link} to="/my-profile">
+              My Profile
             </NavButton>
           </li>
           <RightListItem>
