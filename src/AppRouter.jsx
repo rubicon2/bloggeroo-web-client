@@ -30,6 +30,7 @@ export default function AppRouter() {
       {
         path: '/',
         Component: Root,
+        ErrorBoundary: ErrorPage,
         children: [
           {
             ErrorBoundary: ErrorPage,
