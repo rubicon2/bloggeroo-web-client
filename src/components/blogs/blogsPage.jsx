@@ -11,6 +11,15 @@ import useSearchParamsPageNumber from '../../hooks/useSearchParamsPageNumber';
 import useRefresh from '../../hooks/useRefresh';
 import { Link, useLoaderData, useRouteError } from 'react-router';
 import { useState } from 'react';
+import styled from 'styled-components';
+
+const TitleBar = styled.div`
+  margin-top: 1rem;
+
+  & * {
+    width: 100%;
+  }
+`;
 
 export default function BlogsPage() {
   const { blogs, atLastPage } = useLoaderData();
@@ -21,23 +30,20 @@ export default function BlogsPage() {
 
   return (
     <main>
-      <PageTitleBar title="Blogs">
-        <MediaMobileOnly>
-          <GeneralButton
-            type="button"
-            onClick={() => setIsMobileSearchOpen(!isMobileSearchOpen)}
-            aria-label={
-              isMobileSearchOpen ? 'Close search form' : 'Show search form'
-            }
-          >
-            {isMobileSearchOpen ? 'Close' : 'Search'}
-          </GeneralButton>
-        </MediaMobileOnly>
-        <Link to="/blogs/new">
-          <GeneralButton type="button">New</GeneralButton>
-        </Link>
-      </PageTitleBar>
       <Container>
+        <TitleBar>
+          <MediaMobileOnly>
+            <GeneralButton
+              type="button"
+              onClick={() => setIsMobileSearchOpen(!isMobileSearchOpen)}
+              aria-label={
+                isMobileSearchOpen ? 'Close search form' : 'Show search form'
+              }
+            >
+              {isMobileSearchOpen ? 'Close' : 'Search'}
+            </GeneralButton>
+          </MediaMobileOnly>
+        </TitleBar>
         {isMobileSearchOpen && (
           // Form seemed sluggish on Firefox but only when touch simulation was turned on?
           <MediaMobileOnly>

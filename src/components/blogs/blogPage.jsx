@@ -2,7 +2,6 @@ import Container from '../container';
 import CommentsList from '../comments/commentsList';
 import CommentForm from '../comments/commentForm';
 import { GeneralButton } from '../styles/buttons';
-import BlogHeader from './blogHeader';
 
 import { AccessContext } from '../../contexts/AppContexts';
 import useRefresh from '../../hooks/useRefresh';
@@ -10,8 +9,17 @@ import authFetch from '../../ext/authFetch';
 import responseToJsend from '../../ext/responseToJsend';
 
 import { useContext, useState } from 'react';
-import { useLoaderData, useRouteError } from 'react-router';
+import { Link, useLoaderData, useRouteError } from 'react-router';
 import dateTimeFormatter from '../../ext/dateTimeFormatter';
+import styled from 'styled-components';
+
+const HeaderContainer = styled.div`
+  margin-top: 1rem;
+`;
+
+const BlogHeader = styled.h2`
+  margin: 0;
+`;
 
 export default function BlogPage() {
   const { blog, comments } = useLoaderData();
@@ -58,14 +66,16 @@ export default function BlogPage() {
     <main>
       {blog && (
         <Container>
-          <BlogHeader as="h2">{blog.title}</BlogHeader>
-          <small>
-            By {blog.owner.name} at{' '}
-            {blog.publishedAt
-              ? dateTimeFormatter.format(new Date(blog.publishedAt))
-              : 'never'}
-          </small>
-
+          <HeaderContainer>
+            <Link to="/">Back to blogs</Link>
+            <BlogHeader>{blog.title}</BlogHeader>
+            <small>
+              By {blog.owner.name} at{' '}
+              {blog.publishedAt
+                ? dateTimeFormatter.format(new Date(blog.publishedAt))
+                : 'never'}
+            </small>
+          </HeaderContainer>
           <p>{blog.body}</p>
           <h3>Comments {comments?.length > 0 ? `(${comments.length})` : ''}</h3>
           {isCreatingComment ? (
