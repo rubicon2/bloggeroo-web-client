@@ -15,7 +15,7 @@ export default async function authFetch(url, accessRef, options = {}) {
     // If response is 401, try to get a new access code.
     if (dataResponse.status === 401) {
       const accessResponse = await fetch(
-        `${import.meta.env.VITE_SERVER_URL}/admin/auth/access`,
+        `${import.meta.env.VITE_SERVER_URL}/auth/access`,
         {
           method: 'post',
           credentials: 'include',
