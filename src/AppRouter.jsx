@@ -44,6 +44,11 @@ export default function AppRouter() {
                 Component: LoginPage,
               },
               {
+                path: 'my-comments',
+                Component: CommentsPage,
+                loader: commentsLoader(accessRef),
+              },
+              {
                 path: 'my-profile',
                 Component: MyProfilePage,
                 loader: myProfileLoader(accessRef),
