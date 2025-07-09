@@ -68,7 +68,7 @@ export default function CommentsListComment({
       <CommentHeading>
         {dateTimeFormatter.format(new Date(comment.createdAt))}
       </CommentHeading>
-      <small>by {comment.owner.name}</small>
+      {comment?.owner?.name && <small>by {comment.owner.name}</small>}
       {comment.parentCommentId && (
         <div>
           <small>
