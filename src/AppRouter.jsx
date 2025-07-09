@@ -49,19 +49,9 @@ export default function AppRouter() {
                 loader: blogLoader(accessRef),
               },
               {
-                path: 'comments',
-                Component: CommentsPage,
-                loader: commentsLoader(accessRef),
-              },
-              {
                 path: 'comments/:commentId',
                 Component: CommentPage,
                 loader: commentLoader(accessRef),
-              },
-              {
-                path: 'users',
-                Component: UsersPage,
-                loader: usersLoader(accessRef),
               },
               {
                 path: 'users/:userId',
