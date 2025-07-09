@@ -88,9 +88,9 @@ export default function PrimaryNavListMobile({ isLoggedIn }) {
           )}
         </>
       ) : (
-        <NavList>
-          <NavButton to="/">Log In</NavButton>
-        </NavList>
+        <NavButton as={Link} to="/log-in">
+          Log In
+        </NavButton>
       )}
     </Menu>
   );

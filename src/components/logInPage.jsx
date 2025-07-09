@@ -1,10 +1,8 @@
-import Header from './header';
-import Footer from './footer';
 import Container from './container';
+import PageTitleBar from './pageTitleBar';
 import Form from './form';
 import FormRow from './formRow';
 import { GeneralButton } from './styles/buttons';
-import { MediaTabletAndLarger } from './styles/mediaQueries';
 import { devices } from '../mediaQueries';
 
 import { AccessContext, UserContext } from '../contexts/AppContexts';
@@ -12,12 +10,6 @@ import responseToJsend from '../ext/responseToJsend';
 import { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import styled from 'styled-components';
-
-import HappyAdminImg from '../static/img/happy_admin.png';
-
-const CenteredForm = styled(Form)`
-  margin: 0 auto;
-`;
 
 const Cols = styled.div`
   display: grid;
@@ -41,7 +33,7 @@ export default function LogInPage() {
 
   // If user is already logged in, stop them accessing the log in page.
   useEffect(() => {
-    if (isLoggedIn) navigate('/blogs');
+    if (isLoggedIn) navigate('/');
   }, [isLoggedIn, navigate]);
 
   async function attemptLogIn(event) {
@@ -72,7 +64,7 @@ export default function LogInPage() {
           setIsLoggedIn(true);
           setValidationErrors(null);
           // Redirect to blogs page.
-          navigate('/blogs');
+          navigate('/');
           break;
         }
         case 'fail': {
@@ -96,43 +88,30 @@ export default function LogInPage() {
   }
 
   return (
-    <>
-      <Header />
-      <main>
-        <Container>
-          <Cols>
-            <MediaTabletAndLarger>
-              <img
-                src={HappyAdminImg}
-                alt="The world's happiest administrator using Bloggeroo"
-              />
-            </MediaTabletAndLarger>
-            <div>
-              <CenteredForm onSubmit={attemptLogIn}>
-                <FormRow label="Email">
-                  <input type="email" name="email" id="email" />
-                  <small>
-                    {validationErrors?.email ? validationErrors.email : ''}
-                  </small>
-                </FormRow>
-                <FormRow label="Password">
-                  <input type="password" name="password" id="password" />
-                  <small>
-                    {validationErrors?.password
-                      ? validationErrors.password
-                      : ''}
-                  </small>
-                </FormRow>
-                <SubmitButton type="submit" disabled={isFetching}>
-                  Log In
-                </SubmitButton>
-              </CenteredForm>
-            </div>
-          </Cols>
-          {error && <p>{error.message}</p>}
-        </Container>
-      </main>
-      <Footer />
-    </>
+    <main>
+      <PageTitleBar title="Log In" />
+      <Container>
+        <Cols>
+          <Form onSubmit={attemptLogIn}>
+            <FormRow label="Email">
+              <input type="email" name="email" id="email" />
+              <small>
+                {validationErrors?.email ? validationErrors.email : ''}
+              </small>
+            </FormRow>
+            <FormRow label="Password">
+              <input type="password" name="password" id="password" />
+              <small>
+                {validationErrors?.password ? validationErrors.password : ''}
+              </small>
+            </FormRow>
+            <SubmitButton type="submit" disabled={isFetching}>
+              Log In
+            </SubmitButton>
+          </Form>
+        </Cols>
+        {error && <p>{error.message}</p>}
+      </Container>
+    </main>
   );
 }

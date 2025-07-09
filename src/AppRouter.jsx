@@ -39,6 +39,10 @@ export default function AppRouter() {
                 loader: blogsLoader(accessRef),
               },
               {
+                path: 'log-in',
+                Component: LoginPage,
+              },
+              {
                 path: 'blogs',
                 Component: BlogsPage,
                 loader: blogsLoader(accessRef),
