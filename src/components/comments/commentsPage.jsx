@@ -21,7 +21,7 @@ export default function CommentsPage() {
 
   return (
     <main>
-      <PageTitleBar title="Comments">
+      <PageTitleBar title="My Comments">
         <MediaMobileOnly>
           <GeneralButton
             type="button"

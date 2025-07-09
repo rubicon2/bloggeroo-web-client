@@ -22,10 +22,6 @@ export default function CommentsSearchForm() {
       <FormFieldsetGrid>
         <legend>Search</legend>
         <FormRow>
-          Author:
-          <input type="text" name="author" />
-        </FormRow>
-        <FormRow>
           Blog title:
           <input type="text" name="blog.title" />
         </FormRow>

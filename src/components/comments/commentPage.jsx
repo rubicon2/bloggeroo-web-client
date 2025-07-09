@@ -43,7 +43,7 @@ export default function CommentPage() {
       setValidationErrors(data?.validationErrors);
       switch (status) {
         case 'success': {
-          navigate('/comments');
+          navigate('/my-comments');
           break;
         }
       }
@@ -59,7 +59,7 @@ export default function CommentPage() {
             <PageTitleBar title={`Edit comment by ${comment.owner.name}`}>
               <DeleteButton
                 url={`${import.meta.env.VITE_SERVER_URL}/comments/${comment.id}`}
-                onDelete={() => navigate('/comments')}
+                onDelete={() => navigate('/my-comments')}
               >
                 Delete
               </DeleteButton>
