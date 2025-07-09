@@ -29,12 +29,6 @@ export default function UsersListUser({ user, onDelete }) {
         <Link to={`/users/${user.id}`}>
           <GeneralButton type="button">Edit</GeneralButton>
         </Link>
-        <DeleteButton
-          url={`${import.meta.env.VITE_SERVER_URL}/admin/users/${user.id}`}
-          onDelete={onDelete}
-        >
-          Delete
-        </DeleteButton>
       </ListItemButtonsContainer>
     </div>
   );
