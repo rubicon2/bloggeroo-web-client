@@ -1,11 +1,11 @@
 import AppRouter from './AppRouter';
 import { AccessContext, UserContext } from './contexts/AppContexts';
 import fetchAccess from './ext/fetchAccess';
-import useLoginState from './hooks/useLoginState';
+import useCookie from './hooks/useCookie';
 import { useEffect, useRef } from 'react';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useLoginState();
+  const [isLoggedIn, setIsLoggedIn] = useCookie('login');
   const accessRef = useRef(null);
 
   // Initialize accessRef - fetch a new access token if user is already logged in.
