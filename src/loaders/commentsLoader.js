@@ -1,5 +1,5 @@
 import authFetch from '../ext/authFetch';
-import decodeJwt from '../ext/decodeJwt';
+import decodeAccess from '../ext/decodeAccess';
 import objToSearchStr from '../ext/objToSearchStr';
 import requestToSearchObj from '../ext/requestToSearchObj';
 import requestToSkipTake from '../ext/requestToSkipTake';
@@ -14,7 +14,7 @@ const defaultSettings = {
 
 export default function commentsLoader(accessRef) {
   return async ({ request }) => {
-    const decoded = decodeJwt(accessRef.current);
+    const decoded = await decodeAccess(accessRef);
     const ownerSettings = { ownerId: decoded?.id ? decoded.id : null };
     // Calculate skip and take from take and page url params.
     const { skip, take } = requestToSkipTake(request);
