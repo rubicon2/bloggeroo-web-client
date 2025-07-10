@@ -1,3 +1,5 @@
+import fetchAccess from './fetchAccess';
+
 // This can be used in event handlers, or in a component with the useAuthFetch hook wrapped around it.
 export default async function authFetch(url, accessRef, options = {}) {
   try {
@@ -14,17 +16,10 @@ export default async function authFetch(url, accessRef, options = {}) {
 
     // If response is 401, try to get a new access code.
     if (dataResponse.status === 401) {
-      const accessResponse = await fetch(
-        `${import.meta.env.VITE_SERVER_URL}/auth/access`,
-        {
-          method: 'post',
-          credentials: 'include',
-        },
-      );
-
-      if (accessResponse.ok) {
-        const json = await accessResponse.json();
-        accessRef.current = json.data.access;
+      // Try to get a new access token.
+      accessRef.current = await fetchAccess();
+      // If new access token received (i.e. not null), do the original fetch again.
+      if (accessRef.current) {
         dataResponse = await fetch(url, {
           headers: {
             Authorization: accessRef.current
