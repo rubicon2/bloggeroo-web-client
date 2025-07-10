@@ -101,7 +101,7 @@ export default function CommentsListComment({
       ) : (
         <>
           <ListItemButtonsContainer>
-            {comment.ownerId === user.id && (
+            {comment.ownerId === user?.id && (
               <Link to={`/comments/${comment.id}`}>
                 <GeneralButton type="button">Edit</GeneralButton>
               </Link>
@@ -112,7 +112,7 @@ export default function CommentsListComment({
             >
               Reply
             </GeneralButton>
-            {comment.ownerId === user.id && (
+            {comment.ownerId === user?.id && (
               <DeleteButton
                 url={`${import.meta.env.VITE_SERVER_URL}/comments/${comment.id}`}
                 onDelete={onDelete}
