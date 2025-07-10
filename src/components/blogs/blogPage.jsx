@@ -3,7 +3,7 @@ import CommentsList from '../comments/commentsList';
 import CommentForm from '../comments/commentForm';
 import { GeneralButton } from '../styles/buttons';
 
-import { AccessContext } from '../../contexts/AppContexts';
+import { AccessContext, UserContext } from '../../contexts/AppContexts';
 import useRefresh from '../../hooks/useRefresh';
 import authFetch from '../../ext/authFetch';
 import responseToJsend from '../../ext/responseToJsend';
@@ -25,6 +25,7 @@ export default function BlogPage() {
   const { blog, comments } = useLoaderData();
   const refresh = useRefresh();
 
+  const { isLoggedIn } = useContext(UserContext);
   const accessRef = useContext(AccessContext);
 
   const [isFetching, setIsFetching] = useState(false);
@@ -78,30 +79,34 @@ export default function BlogPage() {
           </HeaderContainer>
           <p>{blog.body}</p>
           <h3>Comments {comments?.length > 0 ? `(${comments.length})` : ''}</h3>
-          {isCreatingComment ? (
+          {isLoggedIn && (
             <>
-              <CommentForm
-                buttonText="Submit"
-                initialValues={{ text: '' }}
-                isFetching={isFetching}
-                validationErrors={commentValidationErrors}
-                onSubmit={createComment}
-              >
+              {isCreatingComment ? (
+                <>
+                  <CommentForm
+                    buttonText="Submit"
+                    initialValues={{ text: '' }}
+                    isFetching={isFetching}
+                    validationErrors={commentValidationErrors}
+                    onSubmit={createComment}
+                  >
+                    <GeneralButton
+                      type="button"
+                      onClick={() => setIsCreatingComment(false)}
+                    >
+                      Cancel
+                    </GeneralButton>
+                  </CommentForm>
+                </>
+              ) : (
                 <GeneralButton
                   type="button"
-                  onClick={() => setIsCreatingComment(false)}
+                  onClick={() => setIsCreatingComment(true)}
                 >
-                  Cancel
+                  Add comment
                 </GeneralButton>
-              </CommentForm>
+              )}
             </>
-          ) : (
-            <GeneralButton
-              type="button"
-              onClick={() => setIsCreatingComment(true)}
-            >
-              Add comment
-            </GeneralButton>
           )}
           <CommentsList
             comments={comments}

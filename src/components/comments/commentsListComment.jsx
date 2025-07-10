@@ -3,7 +3,7 @@ import DeleteButton from '../deleteButton';
 import { GeneralButton } from '../styles/buttons';
 import ListItemButtonsContainer from '../listItemButtonsContainer';
 
-import { AccessContext } from '../../contexts/AppContexts';
+import { AccessContext, UserContext } from '../../contexts/AppContexts';
 import authFetch from '../../ext/authFetch';
 import responseToJsend from '../../ext/responseToJsend';
 import dateTimeFormatter from '../../ext/dateTimeFormatter';
@@ -31,6 +31,7 @@ export default function CommentsListComment({
   onReply,
   onDelete,
 }) {
+  const { isLoggedIn } = useContext(UserContext);
   const accessRef = useContext(AccessContext);
   const [error, setError] = useState(null);
   const [validationErrors, setValidationErrors] = useState(null);
@@ -100,27 +101,29 @@ export default function CommentsListComment({
         </>
       ) : (
         <>
-          <ListItemButtonsContainer>
-            {comment.ownerId === user?.id && (
-              <Link to={`/comments/${comment.id}`}>
-                <GeneralButton type="button">Edit</GeneralButton>
-              </Link>
-            )}
-            <GeneralButton
-              type="button"
-              onClick={() => setActiveComment(comment)}
-            >
-              Reply
-            </GeneralButton>
-            {comment.ownerId === user?.id && (
-              <DeleteButton
-                url={`${import.meta.env.VITE_SERVER_URL}/comments/${comment.id}`}
-                onDelete={onDelete}
+          {isLoggedIn && (
+            <ListItemButtonsContainer>
+              {comment.ownerId === user?.id && (
+                <Link to={`/comments/${comment.id}`}>
+                  <GeneralButton type="button">Edit</GeneralButton>
+                </Link>
+              )}
+              <GeneralButton
+                type="button"
+                onClick={() => setActiveComment(comment)}
               >
-                Delete
-              </DeleteButton>
-            )}
-          </ListItemButtonsContainer>
+                Reply
+              </GeneralButton>
+              {comment.ownerId === user?.id && (
+                <DeleteButton
+                  url={`${import.meta.env.VITE_SERVER_URL}/comments/${comment.id}`}
+                  onDelete={onDelete}
+                >
+                  Delete
+                </DeleteButton>
+              )}
+            </ListItemButtonsContainer>
+          )}
         </>
       )}
       {error && <p>{error.message}</p>}
