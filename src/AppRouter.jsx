@@ -8,6 +8,7 @@ import CommentPage from './components/comments/commentPage';
 import UserPage from './components/users/userPage';
 import MyProfilePage from './components/users/myProfilePage';
 import SignUpPage from './components/sign-up/signUpPage';
+import CloseAccountPage from './components/close-account/closeAccountPage';
 
 import blogsLoader from './loaders/blogsLoader';
 import blogLoader from './loaders/blogLoader';
@@ -15,6 +16,7 @@ import commentsLoader from './loaders/commentsLoader';
 import commentLoader from './loaders/commentLoader';
 import userLoader from './loaders/userLoader';
 import myProfileLoader from './loaders/myProfileLoader';
+import closeAccountLoader from './loaders/closeAccountLoader';
 
 import { AccessContext } from './contexts/AppContexts';
 
@@ -48,6 +50,11 @@ export default function AppRouter() {
               {
                 path: 'sign-up',
                 Component: SignUpPage,
+              },
+              {
+                path: 'close-account',
+                Component: CloseAccountPage,
+                loader: closeAccountLoader(accessRef),
               },
               {
                 path: 'my-comments',
