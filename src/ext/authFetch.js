@@ -22,6 +22,7 @@ export default async function authFetch(url, accessRef, options = {}) {
       if (accessRef.current) {
         dataResponse = await fetch(url, {
           headers: {
+            ...headers,
             Authorization: accessRef.current
               ? 'Bearer ' + accessRef.current
               : '',
