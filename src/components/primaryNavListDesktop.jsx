@@ -39,11 +39,18 @@ export default function PrimaryNavListDesktop({ isLoggedIn }) {
           </RightListItem>
         </>
       ) : (
-        <RightListItem>
-          <NavButton as={Link} to="/log-in">
-            Log In
-          </NavButton>
-        </RightListItem>
+        <>
+          <RightListItem>
+            <NavButton as={Link} to="/sign-up">
+              Sign Up
+            </NavButton>
+          </RightListItem>
+          <li>
+            <NavButton as={Link} to="/log-in">
+              Log In
+            </NavButton>
+          </li>
+        </>
       )}
     </NavList>
   );

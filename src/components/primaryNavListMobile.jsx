@@ -84,9 +84,35 @@ export default function PrimaryNavListMobile({ isLoggedIn }) {
           )}
         </>
       ) : (
-        <NavButton as={Link} to="/log-in">
-          Log In
-        </NavButton>
+        <>
+          <NavButton onClick={() => setMenuOpen(!menuOpen)}>
+            <img
+              src={menuIcon}
+              alt=""
+              aria-label={
+                menuOpen ? 'Close main Navigation' : 'Open main navigation'
+              }
+            />
+          </NavButton>
+          {menuOpen && (
+            <NavList>
+              <NavButton
+                as={Link}
+                to="/sign-up"
+                onClick={() => setMenuOpen(false)}
+              >
+                Sign Up
+              </NavButton>
+              <NavButton
+                as={Link}
+                to="/log-in"
+                onClick={() => setMenuOpen(false)}
+              >
+                Log In
+              </NavButton>
+            </NavList>
+          )}
+        </>
       )}
     </Menu>
   );

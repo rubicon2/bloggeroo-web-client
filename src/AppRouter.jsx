@@ -7,6 +7,7 @@ import CommentsPage from './components/comments/commentsPage';
 import CommentPage from './components/comments/commentPage';
 import UserPage from './components/users/userPage';
 import MyProfilePage from './components/users/myProfilePage';
+import SignUpPage from './components/sign-up/signUpPage';
 
 import blogsLoader from './loaders/blogsLoader';
 import blogLoader from './loaders/blogLoader';
@@ -43,6 +44,10 @@ export default function AppRouter() {
               {
                 path: 'log-in',
                 Component: LoginPage,
+              },
+              {
+                path: 'sign-up',
+                Component: SignUpPage,
               },
               {
                 path: 'my-comments',
