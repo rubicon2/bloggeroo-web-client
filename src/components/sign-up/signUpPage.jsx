@@ -16,6 +16,7 @@ export default function SignUpPage() {
   const [isFetching, setIsFetching] = useState(false);
   const [validationErrors, setValidationErrors] = useState(null);
   const [responseMessage, setResponseMessage] = useState(null);
+  const [signUpSuccessful, setSignUpSuccessful] = useState(false);
 
   async function attemptSignUp(event) {
     event.preventDefault();
@@ -38,6 +39,7 @@ export default function SignUpPage() {
           // If successful, a message will be returned by the server, saying to confirm email address.
           setValidationErrors(null);
           setResponseMessage(data.message);
+          setSignUpSuccessful(true);
           break;
         }
         case 'fail': {
@@ -61,35 +63,39 @@ export default function SignUpPage() {
     <main>
       <PageTitleBar title="Sign Up" />
       <Container>
-        <Form onSubmit={attemptSignUp}>
-          <FormRow label="Email">
-            <input type="email" name="email" />
-            <small>
-              {validationErrors?.email ? validationErrors.email : ''}
-            </small>
-          </FormRow>
-          <FormRow label="Name">
-            <input type="text" name="name" />
-            <small>{validationErrors?.name ? validationErrors.name : ''}</small>
-          </FormRow>
-          <FormRow label="Password">
-            <input type="password" name="password" />
-            <small>
-              {validationErrors?.password ? validationErrors.password : ''}
-            </small>
-          </FormRow>
-          <FormRow label="Confirm password">
-            <input type="password" name="confirm_password" />
-            <small>
-              {validationErrors?.confirm_password
-                ? validationErrors.confirm_password
-                : ''}
-            </small>
-          </FormRow>
-          <SubmitButton type="submit" disabled={isFetching}>
-            Sign Up
-          </SubmitButton>
-        </Form>
+        {!signUpSuccessful && (
+          <Form onSubmit={attemptSignUp}>
+            <FormRow label="Email">
+              <input type="email" name="email" />
+              <small>
+                {validationErrors?.email ? validationErrors.email : ''}
+              </small>
+            </FormRow>
+            <FormRow label="Name">
+              <input type="text" name="name" />
+              <small>
+                {validationErrors?.name ? validationErrors.name : ''}
+              </small>
+            </FormRow>
+            <FormRow label="Password">
+              <input type="password" name="password" />
+              <small>
+                {validationErrors?.password ? validationErrors.password : ''}
+              </small>
+            </FormRow>
+            <FormRow label="Confirm password">
+              <input type="password" name="confirm_password" />
+              <small>
+                {validationErrors?.confirm_password
+                  ? validationErrors.confirm_password
+                  : ''}
+              </small>
+            </FormRow>
+            <SubmitButton type="submit" disabled={isFetching}>
+              Sign Up
+            </SubmitButton>
+          </Form>
+        )}
         {responseMessage && <p>{responseMessage}</p>}
       </Container>
     </main>
