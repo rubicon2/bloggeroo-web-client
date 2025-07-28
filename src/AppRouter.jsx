@@ -9,6 +9,7 @@ import UserPage from './components/users/userPage';
 import MyProfilePage from './components/users/myProfilePage';
 import SignUpPage from './components/sign-up/signUpPage';
 import CloseAccountPage from './components/close-account/closeAccountPage';
+import ConfirmEmailPage from './components/confirm-email/confirmEmailPage';
 
 import blogsLoader from './loaders/blogsLoader';
 import blogLoader from './loaders/blogLoader';
@@ -17,9 +18,9 @@ import commentLoader from './loaders/commentLoader';
 import userLoader from './loaders/userLoader';
 import myProfileLoader from './loaders/myProfileLoader';
 import closeAccountLoader from './loaders/closeAccountLoader';
+import confirmEmailLoader from './loaders/confirmEmailLoader';
 
 import { AccessContext } from './contexts/AppContexts';
-
 import { useContext, useMemo } from 'react';
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router';
 
@@ -50,6 +51,11 @@ export default function AppRouter() {
               {
                 path: 'sign-up',
                 Component: SignUpPage,
+              },
+              {
+                path: 'confirm-email',
+                Component: ConfirmEmailPage,
+                loader: confirmEmailLoader(accessRef),
               },
               {
                 path: 'close-account',
