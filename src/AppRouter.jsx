@@ -99,11 +99,6 @@ export default function AppRouter() {
                 Component: CommentPage,
                 loader: commentLoader(accessRef),
               },
-              {
-                path: 'users/:userId',
-                Component: UserPage,
-                loader: userLoader(accessRef),
-              },
             ],
           },
         ],
