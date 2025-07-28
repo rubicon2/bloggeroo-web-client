@@ -7,6 +7,7 @@ import { devices } from '../mediaQueries';
 
 import { AccessContext, UserContext } from '../contexts/AppContexts';
 import responseToJsend from '../ext/responseToJsend';
+import { Link } from 'react-router';
 import { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import styled from 'styled-components';
@@ -105,6 +106,7 @@ export default function LogInPage() {
                 {validationErrors?.password ? validationErrors.password : ''}
               </small>
             </FormRow>
+            <Link to="/request-password-reset">Forgotten password?</Link>
             <SubmitButton type="submit" disabled={isFetching}>
               Log In
             </SubmitButton>

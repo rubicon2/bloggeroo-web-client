@@ -10,6 +10,8 @@ import MyProfilePage from './components/users/myProfilePage';
 import SignUpPage from './components/sign-up/signUpPage';
 import CloseAccountPage from './components/close-account/closeAccountPage';
 import ConfirmEmailPage from './components/confirm-email/confirmEmailPage';
+import RequestPasswordResetPage from './components/request-password-reset/requestPasswordResetPage';
+import ResetPasswordPage from './components/reset-password/resetPasswordPage';
 
 import blogsLoader from './loaders/blogsLoader';
 import blogLoader from './loaders/blogLoader';
@@ -19,6 +21,7 @@ import userLoader from './loaders/userLoader';
 import myProfileLoader from './loaders/myProfileLoader';
 import closeAccountLoader from './loaders/closeAccountLoader';
 import confirmEmailLoader from './loaders/confirmEmailLoader';
+import resetPasswordLoader from './loaders/resetPasswordLoader';
 
 import { AccessContext } from './contexts/AppContexts';
 import { useContext, useMemo } from 'react';
@@ -56,6 +59,15 @@ export default function AppRouter() {
                 path: 'confirm-email',
                 Component: ConfirmEmailPage,
                 loader: confirmEmailLoader(accessRef),
+              },
+              {
+                path: 'request-password-reset',
+                Component: RequestPasswordResetPage,
+              },
+              {
+                path: 'reset-password',
+                Component: ResetPasswordPage,
+                loader: resetPasswordLoader(accessRef),
               },
               {
                 path: 'close-account',
