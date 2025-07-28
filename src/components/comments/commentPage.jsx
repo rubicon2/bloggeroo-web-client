@@ -78,7 +78,9 @@ export default function CommentPage() {
             />
             {comment.parentCommentId && (
               <small>
-                <Link to={`/comments/${comment.parentCommentId}`}>
+                <Link
+                  to={`/blogs/${comment.parentComment.blogId}#${comment.parentCommentId}`}
+                >
                   In response to this comment
                 </Link>
               </small>
