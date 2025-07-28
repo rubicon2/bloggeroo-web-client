@@ -24,7 +24,7 @@ export default function Header() {
   return (
     <HeaderBackground>
       <HeaderContainer>
-        <h1>My Food Blog</h1>
+        <h1>{import.meta.env.VITE_BLOG_TITLE}</h1>
       </HeaderContainer>
     </HeaderBackground>
   );

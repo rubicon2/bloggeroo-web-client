@@ -16,7 +16,7 @@ export default function Footer() {
   return (
     <FooterBackground>
       <Container>
-        <FooterText>Bloggeroo API</FooterText>
+        <FooterText>{import.meta.env.VITE_FOOTER_TEXT}</FooterText>
       </Container>
     </FooterBackground>
   );
