@@ -1,12 +1,19 @@
-import { useContext, useState } from 'react';
 import Container from '../container';
 import Form from '../form';
+import FormRow from '../formRow';
 import { DeleteButton } from '../styles/buttons';
 
-import { useLoaderData } from 'react-router';
-import authFetch from '../../ext/authFetch';
 import { AccessContext } from '../../contexts/AppContexts';
+import authFetch from '../../ext/authFetch';
 import responseToJsend from '../../ext/responseToJsend';
+
+import { useLoaderData } from 'react-router';
+import { useContext, useState } from 'react';
+import styled from 'styled-components';
+
+const PaddedDeleteButton = styled(DeleteButton)`
+  padding: 16px;
+`;
 
 export default function MyProfilePage() {
   const accessRef = useContext(AccessContext);
@@ -46,12 +53,20 @@ export default function MyProfilePage() {
     <main>
       <Container>
         <h2>My Profile</h2>
-        Name: {user.name}
-        Email: {user.email}
-        <Form onSubmit={requestAccountDeletion}>
-          <DeleteButton type="submit" disabled={isFetching}>
+        <Form>
+          <FormRow label="Name">
+            <input type="text" value={user.name} disabled="true" />
+          </FormRow>
+          <FormRow label="Email">
+            <input type="email" value={user.email} disabled="true" />
+          </FormRow>
+          <PaddedDeleteButton
+            type="button"
+            disabled={isFetching}
+            onClick={requestAccountDeletion}
+          >
             Delete Account
-          </DeleteButton>
+          </PaddedDeleteButton>
         </Form>
         {responseMessage && <p>{responseMessage}</p>}
       </Container>
