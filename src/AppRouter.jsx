@@ -5,7 +5,6 @@ import BlogPage from './components/blogs/blogPage';
 import ErrorPage from './components/errorPage';
 import CommentsPage from './components/comments/commentsPage';
 import CommentPage from './components/comments/commentPage';
-import UserPage from './components/users/userPage';
 import MyProfilePage from './components/users/myProfilePage';
 import SignUpPage from './components/sign-up/signUpPage';
 import CloseAccountPage from './components/close-account/closeAccountPage';
@@ -17,7 +16,6 @@ import blogsLoader from './loaders/blogsLoader';
 import blogLoader from './loaders/blogLoader';
 import commentsLoader from './loaders/commentsLoader';
 import commentLoader from './loaders/commentLoader';
-import userLoader from './loaders/userLoader';
 import myProfileLoader from './loaders/myProfileLoader';
 import closeAccountLoader from './loaders/closeAccountLoader';
 import confirmEmailLoader from './loaders/confirmEmailLoader';
@@ -25,7 +23,7 @@ import resetPasswordLoader from './loaders/resetPasswordLoader';
 
 import { AccessContext } from './contexts/AppContexts';
 import { useContext, useMemo } from 'react';
-import { createBrowserRouter, Outlet, RouterProvider } from 'react-router';
+import { createBrowserRouter, RouterProvider } from 'react-router';
 
 // This re-generates the browser router every time the state (i.e. access token) changes. Not great.
 // But the only way I could find to get the access token into the loader was by currying the access token
