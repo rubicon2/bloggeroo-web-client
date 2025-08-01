@@ -4,12 +4,13 @@
   --theme-main-color: rgb(32, 133, 240);
   --theme-grey: rgb(0, 0, 0, 0.1);
   --theme-shadow: rgb(0, 0, 0, 0.1);
+  --std-font-weight: 400;
 }
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: var(--std-font-weight);
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
