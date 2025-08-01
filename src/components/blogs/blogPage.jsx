@@ -2,6 +2,7 @@ import Container from '../container';
 import CommentsList from '../comments/commentsList';
 import CommentForm from '../comments/commentForm';
 import { GeneralButton } from '../styles/buttons';
+import PreservedSpacingP from '../styles/preservedSpacingP';
 
 import { AccessContext, UserContext } from '../../contexts/AppContexts';
 import useRefresh from '../../hooks/useRefresh';
@@ -77,7 +78,7 @@ export default function BlogPage() {
                 : 'never'}
             </small>
           </HeaderContainer>
-          <p>{blog.body}</p>
+          <PreservedSpacingP>{blog.body}</PreservedSpacingP>
           <h3>Comments {comments?.length > 0 ? `(${comments.length})` : ''}</h3>
           {isLoggedIn && (
             <>

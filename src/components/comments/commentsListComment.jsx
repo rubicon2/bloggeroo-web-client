@@ -2,6 +2,7 @@ import CommentForm from './commentForm';
 import DeleteButton from '../deleteButton';
 import { GeneralButton } from '../styles/buttons';
 import ListItemButtonsContainer from '../listItemButtonsContainer';
+import PreservedSpacingP from '../styles/preservedSpacingP';
 
 import { AccessContext, UserContext } from '../../contexts/AppContexts';
 import authFetch from '../../ext/authFetch';
@@ -84,7 +85,7 @@ export default function CommentsListComment({
           </small>
         </div>
       )}
-      <p>{comment.text}</p>
+      <PreservedSpacingP>{comment.text}</PreservedSpacingP>
       {isActiveComment ? (
         <>
           <CommentForm

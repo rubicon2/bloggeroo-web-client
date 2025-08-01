@@ -1,6 +1,7 @@
 import BlogHeader from './blogHeader';
 import dateTimeFormatter from '../../ext/dateTimeFormatter';
 import UnstyledLink from '../unstyledLink';
+import PreservedSpacingP from '../styles/preservedSpacingP';
 
 export default function BlogsListBlog({ blog }) {
   return (
@@ -13,7 +14,7 @@ export default function BlogsListBlog({ blog }) {
             ? dateTimeFormatter.format(new Date(blog.publishedAt))
             : 'never'}
         </small>
-        <p>{blog.body}</p>
+        <PreservedSpacingP>{blog.body}</PreservedSpacingP>
       </div>
     </UnstyledLink>
   );
