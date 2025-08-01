@@ -40,6 +40,11 @@ export default function PrimaryNavListDesktop({ isLoggedIn }) {
         </>
       ) : (
         <>
+          <li>
+            <NavButton as={Link} to="/">
+              Blogs
+            </NavButton>
+          </li>
           <RightListItem>
             <NavButton as={Link} to="/sign-up">
               Sign Up
