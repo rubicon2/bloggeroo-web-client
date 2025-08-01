@@ -43,10 +43,6 @@ export default function BlogsSearchForm() {
           To date:
           <input type="date" name="toDate" />
         </FormRow>
-        <FormRow>
-          Only Unpublished?
-          <input type="checkbox" name="onlyUnpublished" />
-        </FormRow>
       </FormFieldsetGrid>
       <FormFieldsetGrid>
         <legend>Sort</legend>
