@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router';
 import { useState, useContext } from 'react';
 import { NavButton } from './styles/buttons';
 
-export default function LogOutButton() {
+export default function LogOutButton({ onClick = () => {} }) {
   const accessRef = useContext(AccessContext);
   const { setIsLoggedIn } = useContext(UserContext);
   const [error, setError] = useState(null);
@@ -39,9 +39,16 @@ export default function LogOutButton() {
   }
 
   return (
-    <NavButton type="button" onClick={logOut} disabled={isFetching}>
+    <NavButton
+      type="button"
+      onClick={(event) => {
+        logOut(event);
+        onClick(event);
+      }}
+      disabled={isFetching}
+    >
       Log Out
-      {error && (<div>{error}</div>)}
+      {error && <div>{error}</div>}
     </NavButton>
   );
 }

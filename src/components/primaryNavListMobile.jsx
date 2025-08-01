@@ -78,7 +78,7 @@ export default function PrimaryNavListMobile({ isLoggedIn }) {
                 </NavButton>
               </li>
               <li>
-                <LogOutButton />
+                <LogOutButton onClick={() => setMenuOpen(false)} />
               </li>
             </NavList>
           )}
