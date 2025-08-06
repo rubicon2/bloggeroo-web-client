@@ -16,6 +16,7 @@ export default function BlogsListBlog({ blog }) {
           {blog.publishedAt
             ? dateTimeFormatter.format(new Date(blog.publishedAt))
             : 'never'}
+          <div>{blog.comments.length} comments</div>
         </small>
         <PreservedSpacingP>{teaser}</PreservedSpacingP>
       </div>
