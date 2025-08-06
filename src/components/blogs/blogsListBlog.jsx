@@ -2,8 +2,11 @@ import BlogHeader from './blogHeader';
 import dateTimeFormatter from '../../ext/dateTimeFormatter';
 import UnstyledLink from '../unstyledLink';
 import PreservedSpacingP from '../styles/preservedSpacingP';
+import { limitWords } from '../../ext/truncateStr';
 
 export default function BlogsListBlog({ blog }) {
+  let teaser = limitWords(blog.body, 50);
+  if (blog.body.split(' ').length >= 50) teaser += '...';
   return (
     <UnstyledLink to={`/blogs/${blog.id}`}>
       <div>
@@ -14,7 +17,7 @@ export default function BlogsListBlog({ blog }) {
             ? dateTimeFormatter.format(new Date(blog.publishedAt))
             : 'never'}
         </small>
-        <PreservedSpacingP>{blog.body}</PreservedSpacingP>
+        <PreservedSpacingP>{teaser}</PreservedSpacingP>
       </div>
     </UnstyledLink>
   );
