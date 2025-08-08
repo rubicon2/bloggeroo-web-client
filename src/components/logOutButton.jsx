@@ -25,13 +25,10 @@ export default function LogOutButton({ onClick = () => {} }) {
           credentials: 'include',
         },
       );
-
-      if (response.ok) {
-        accessRef.current = null;
-        setIsLoggedIn(false);
-        // Redirect user back to log in page.
-        navigate('/');
-      }
+      accessRef.current = null;
+      setIsLoggedIn(false);
+      // Redirect user back to log in page.
+      navigate('/');
     } catch (error) {
       setError(error.message);
     }
