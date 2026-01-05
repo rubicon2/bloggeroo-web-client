@@ -15,6 +15,7 @@ import { useContext, useState } from 'react';
 import styled from 'styled-components';
 
 const CommentHeading = styled.h3`
+  line-height: 1;
   margin-bottom: 0;
 `;
 
