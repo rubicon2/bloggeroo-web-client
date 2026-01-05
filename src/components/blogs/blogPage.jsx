@@ -13,6 +13,7 @@ import { useContext, useState } from 'react';
 import { Link, useLoaderData, useRouteError } from 'react-router';
 import dateTimeFormatter from '../../ext/dateTimeFormatter';
 import styled from 'styled-components';
+import MarkdownBlog from './markdownBlog';
 
 const HeaderContainer = styled.div`
   margin-top: 1rem;
@@ -78,7 +79,7 @@ export default function BlogPage() {
                 : 'never'}
             </small>
           </HeaderContainer>
-          <PreservedSpacingP>{blog.body}</PreservedSpacingP>
+          <MarkdownBlog>{blog.body}</MarkdownBlog>
           <h3>Comments {comments?.length > 0 ? `(${comments.length})` : ''}</h3>
           {isLoggedIn && (
             <>

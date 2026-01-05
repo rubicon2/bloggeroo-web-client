@@ -1,12 +1,11 @@
 import BlogHeader from './blogHeader';
-import dateTimeFormatter from '../../ext/dateTimeFormatter';
 import UnstyledLink from '../unstyledLink';
-import PreservedSpacingP from '../styles/preservedSpacingP';
-import { limitWords } from '../../ext/truncateStr';
+import MarkdownBlog from './markdownBlog';
+import createBlogPreviewText from '../../ext/createBlogPreviewText';
+import dateTimeFormatter from '../../ext/dateTimeFormatter';
 
 export default function BlogsListBlog({ blog }) {
-  let teaser = limitWords(blog.body, 50);
-  if (blog.body.split(' ').length >= 50) teaser += '...';
+  const blogPreview = createBlogPreviewText(blog);
   return (
     <UnstyledLink to={`/blogs/${blog.id}`}>
       <div>
@@ -18,7 +17,7 @@ export default function BlogsListBlog({ blog }) {
             : 'never'}
           <div>{blog.comments.length} comments</div>
         </small>
-        <PreservedSpacingP>{teaser}</PreservedSpacingP>
+        <MarkdownBlog>{blogPreview}</MarkdownBlog>
       </div>
     </UnstyledLink>
   );
