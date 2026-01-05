@@ -8,3 +8,7 @@ createRoot(document.getElementById('root')).render(
     <App />
   </StrictMode>,
 );
+
+// Since html can't access env variables, set html head title here.
+const title = document.querySelector('title');
+title.textContent = import.meta.env.VITE_BLOG_TITLE;
