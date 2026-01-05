@@ -1,4 +1,3 @@
-import { devices } from '../../mediaQueries';
 import styled from 'styled-components';
 
 const Form = styled.form`
@@ -13,15 +12,11 @@ const FormFieldsetGrid = styled.fieldset`
 
 const FormRow = styled.label`
   display: grid;
+  grid-auto-rows: repeat(2, min-content);
   align-items: center;
 
   & input[type='checkbox'] {
     justify-self: right;
-  }
-
-  @media ${devices.phone} {
-    grid-template-columns: 1fr 2fr;
-    gap: 1rem;
   }
 `;
 
