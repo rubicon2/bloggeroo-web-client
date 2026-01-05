@@ -36,6 +36,10 @@ const H6 = styled.h6`
 const PreserveWhitespaceP = styled.p`
   white-space-collapse: preserve;
   max-width: 50ch;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 const markdownComponents = {
