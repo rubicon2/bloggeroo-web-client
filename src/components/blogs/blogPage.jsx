@@ -1,4 +1,5 @@
 import Container from '../container';
+import BlogHeader from './blogHeader';
 import CommentsList from '../comments/commentsList';
 import CommentForm from '../comments/commentForm';
 import { GeneralButton } from '../styles/buttons';
@@ -17,10 +18,6 @@ import MarkdownBlog from './markdownBlog';
 
 const HeaderContainer = styled.div`
   margin-top: 1rem;
-`;
-
-const BlogHeader = styled.h2`
-  margin: 0;
 `;
 
 export default function BlogPage() {
