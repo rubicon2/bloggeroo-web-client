@@ -1,4 +1,5 @@
 import Container from '../container';
+import BlogHeader from './blogHeader';
 import CommentsList from '../comments/commentsList';
 import CommentForm from '../comments/commentForm';
 import { GeneralButton } from '../styles/buttons';
@@ -13,13 +14,10 @@ import { useContext, useState } from 'react';
 import { Link, useLoaderData, useRouteError } from 'react-router';
 import dateTimeFormatter from '../../ext/dateTimeFormatter';
 import styled from 'styled-components';
+import MarkdownBlog from './markdownBlog';
 
 const HeaderContainer = styled.div`
   margin-top: 1rem;
-`;
-
-const BlogHeader = styled.h2`
-  margin: 0;
 `;
 
 export default function BlogPage() {
@@ -78,7 +76,7 @@ export default function BlogPage() {
                 : 'never'}
             </small>
           </HeaderContainer>
-          <PreservedSpacingP>{blog.body}</PreservedSpacingP>
+          <MarkdownBlog>{blog.body}</MarkdownBlog>
           <h3>Comments {comments?.length > 0 ? `(${comments.length})` : ''}</h3>
           {isLoggedIn && (
             <>

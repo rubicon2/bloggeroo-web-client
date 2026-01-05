@@ -1,3 +1,10 @@
+export function limitLines(str, maxLines) {
+  return str
+    .split('\n')
+    .filter((_line, index) => index < maxLines)
+    .join('\n');
+}
+
 export function limitWords(str, maxWords) {
   return str
     .split(' ')
