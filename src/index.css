@@ -86,6 +86,11 @@ textarea {
   border: 1px solid #dddfe2;
 }
 
+code {
+  /* Code size doesn't automatically scale with browser font size. */
+  font-size: 1rem;
+}
+
 table {
   border-collapse: collapse;
 }

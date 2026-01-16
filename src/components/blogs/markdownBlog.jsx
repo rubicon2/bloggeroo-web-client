@@ -42,6 +42,14 @@ const PreserveWhitespaceP = styled.p`
   }
 `;
 
+const CodePre = styled.pre`
+  background-color: black;
+  border-radius: 5px;
+  color: white;
+  overflow-x: scroll;
+  padding: 1rem;
+`;
+
 const markdownComponents = {
   h1({ children, ...props }) {
     return <H1 {...props}>{children}</H1>;
@@ -63,6 +71,9 @@ const markdownComponents = {
   },
   p({ children, ...props }) {
     return <PreserveWhitespaceP {...props}>{children}</PreserveWhitespaceP>;
+  },
+  pre({ children, ...props }) {
+    return <CodePre {...props}>{children}</CodePre>;
   },
 };
 
