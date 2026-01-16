@@ -4,7 +4,7 @@ const LineSeparatedListItem = styled.li`
   // For even spacing between items.
   padding-bottom: 1rem;
   margin-bottom: 1rem;
-  border-bottom: 2px solid var(--theme-grey);
+  border-bottom: 2px solid var(--theme-soft-outline-color);
 
   &:last-of-type {
     // Since border will be gone, no need for padding and margin.

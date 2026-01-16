@@ -8,6 +8,8 @@ const Form = styled.form`
 const FormFieldsetGrid = styled.fieldset`
   display: grid;
   gap: 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--theme-outline-color);
 `;
 
 const FormRow = styled.label`
