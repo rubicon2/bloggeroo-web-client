@@ -3,7 +3,7 @@ import CommentsList from './commentsList';
 import Container from '../container';
 import PageNav from '../pageNav';
 import CommentsSearchForm from './commentsSearchForm';
-import { Cols, Sticky } from '../styles/mainPage';
+import { Cols, MobileMarginContainer, Sticky } from '../styles/mainPage';
 import { GeneralButton } from '../styles/buttons';
 import { MediaMobileOnly, MediaTabletAndLarger } from '../styles/mediaQueries';
 
@@ -38,7 +38,9 @@ export default function CommentsPage() {
         {isMobileSearchOpen && (
           // Form seemed sluggish on Firefox but only when touch simulation was turned on?
           <MediaMobileOnly>
-            <CommentsSearchForm />
+            <MobileMarginContainer>
+              <CommentsSearchForm />
+            </MobileMarginContainer>
           </MediaMobileOnly>
         )}
         <Cols>
