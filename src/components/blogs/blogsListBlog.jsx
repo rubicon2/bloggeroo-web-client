@@ -8,17 +8,15 @@ export default function BlogsListBlog({ blog }) {
   const blogPreview = createBlogPreviewText(blog);
   return (
     <UnstyledLink to={`/blogs/${blog.id}`}>
-      <div>
-        <BlogHeader>{blog.title}</BlogHeader>
-        <small>
-          By {blog.owner.name} at{' '}
-          {blog.publishedAt
-            ? dateTimeFormatter.format(new Date(blog.publishedAt))
-            : 'never'}
-          <div>{blog.comments.length} comments</div>
-        </small>
-        <MarkdownBlog>{blogPreview}</MarkdownBlog>
-      </div>
+      <BlogHeader>{blog.title}</BlogHeader>
+      <small>
+        By {blog.owner.name} at{' '}
+        {blog.publishedAt
+          ? dateTimeFormatter.format(new Date(blog.publishedAt))
+          : 'never'}
+        <div>{blog.comments.length} comments</div>
+      </small>
+      <MarkdownBlog>{blogPreview}</MarkdownBlog>
     </UnstyledLink>
   );
 }
