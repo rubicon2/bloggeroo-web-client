@@ -2,11 +2,11 @@ import { devices } from '../../mediaQueries';
 import styled from 'styled-components';
 
 const Cols = styled.div`
-  display: grid;
-  gap: 1rem;
   position: relative;
 
   @media ${devices.tablet} {
+    display: grid;
+    gap: 1rem;
     grid-template-columns: 2fr 1fr;
   }
 `;
