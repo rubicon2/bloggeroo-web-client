@@ -9,7 +9,7 @@ import { MediaMobileOnly, MediaTabletAndLarger } from '../styles/mediaQueries';
 
 import useSearchParamsPageNumber from '../../hooks/useSearchParamsPageNumber';
 import useRefresh from '../../hooks/useRefresh';
-import { Link, useLoaderData, useRouteError } from 'react-router';
+import { useLoaderData, useRouteError } from 'react-router';
 import { useState } from 'react';
 import styled from 'styled-components';
 
