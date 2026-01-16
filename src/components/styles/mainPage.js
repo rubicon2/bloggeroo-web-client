@@ -18,7 +18,7 @@ const Sticky = styled.div`
 `;
 
 const MobileMarginContainer = styled.div`
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 
   @media ${devices.tablet} {
     margin-bottom: 0;

@@ -3,7 +3,7 @@ import PageNav from '../pageNav';
 import BlogsSearchForm from './blogsSearchForm';
 import BlogsList from './blogsList';
 import PageTitleBar from '../pageTitleBar';
-import { Cols, Sticky } from '../styles/mainPage';
+import { Cols, MobileMarginContainer, Sticky } from '../styles/mainPage';
 import { GeneralButton } from '../styles/buttons';
 import { MediaMobileOnly, MediaTabletAndLarger } from '../styles/mediaQueries';
 
@@ -14,7 +14,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 const TitleBar = styled.div`
-  margin-top: 1rem;
+  margin: 1rem 0;
 
   & * {
     width: 100%;
@@ -47,7 +47,9 @@ export default function BlogsPage() {
         {isMobileSearchOpen && (
           // Form seemed sluggish on Firefox but only when touch simulation was turned on?
           <MediaMobileOnly>
-            <BlogsSearchForm />
+            <MobileMarginContainer>
+              <BlogsSearchForm />
+            </MobileMarginContainer>
           </MediaMobileOnly>
         )}
         <Cols>
