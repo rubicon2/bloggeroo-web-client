@@ -39,83 +39,68 @@ const NavList = styled(UnstyledList)`
 
 export default function PrimaryNavListMobile({ isLoggedIn }) {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const loggedInNavListItems = (
+    <>
+      <li>
+        <NavButton
+          as={Link}
+          to="/my-comments"
+          onClick={() => setMenuOpen(false)}
+        >
+          My Comments
+        </NavButton>
+      </li>
+      <li>
+        <NavButton
+          as={Link}
+          to="/my-profile"
+          onClick={() => setMenuOpen(false)}
+        >
+          My Profile
+        </NavButton>
+      </li>
+      <li>
+        <LogOutButton onClick={() => setMenuOpen(false)} />
+      </li>
+    </>
+  );
+
+  const loggedOutNavListItems = (
+    <>
+      <li>
+        <NavButton as={Link} to="/sign-up" onClick={() => setMenuOpen(false)}>
+          Sign Up
+        </NavButton>
+      </li>
+      <li>
+        <NavButton as={Link} to="/log-in" onClick={() => setMenuOpen(false)}>
+          Log In
+        </NavButton>
+      </li>
+    </>
+  );
+
   return (
     <Menu>
-      {isLoggedIn ? (
-        <>
-          <NavButton onClick={() => setMenuOpen(!menuOpen)}>
-            <img
-              src={menuIcon}
-              alt=""
-              aria-label={
-                menuOpen ? 'Close main Navigation' : 'Open main navigation'
-              }
-            />
-          </NavButton>
-          {menuOpen && (
-            <NavList>
-              <li>
-                <NavButton as={Link} to="/" onClick={() => setMenuOpen(false)}>
-                  Blogs
-                </NavButton>
-              </li>
-              <li>
-                <NavButton
-                  as={Link}
-                  to="/my-comments"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  My Comments
-                </NavButton>
-              </li>
-              <li>
-                <NavButton
-                  as={Link}
-                  to="/my-profile"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  My Profile
-                </NavButton>
-              </li>
-              <li>
-                <LogOutButton onClick={() => setMenuOpen(false)} />
-              </li>
-            </NavList>
-          )}
-        </>
-      ) : (
-        <>
-          <NavButton onClick={() => setMenuOpen(!menuOpen)}>
-            <img
-              src={menuIcon}
-              alt=""
-              aria-label={
-                menuOpen ? 'Close main Navigation' : 'Open main navigation'
-              }
-            />
-          </NavButton>
-          {menuOpen && (
-            <NavList>
-              <NavButton as={Link} to="/">
-                Blogs
-              </NavButton>
-              <NavButton
-                as={Link}
-                to="/sign-up"
-                onClick={() => setMenuOpen(false)}
-              >
-                Sign Up
-              </NavButton>
-              <NavButton
-                as={Link}
-                to="/log-in"
-                onClick={() => setMenuOpen(false)}
-              >
-                Log In
-              </NavButton>
-            </NavList>
-          )}
-        </>
+      <NavButton onClick={() => setMenuOpen(!menuOpen)}>
+        <img
+          src={menuIcon}
+          alt=""
+          aria-label={
+            menuOpen ? 'Close main Navigation' : 'Open main navigation'
+          }
+        />
+      </NavButton>
+      {menuOpen && (
+        <NavList>
+          <li>
+            <NavButton as={Link} to="/" onClick={() => setMenuOpen(false)}>
+              Blogs
+            </NavButton>
+          </li>
+          {isLoggedIn ? loggedInNavListItems : loggedOutNavListItems}
+        </NavList>
       )}
     </Menu>
   );
