@@ -96,6 +96,9 @@ export default function PrimaryNavListMobile({ isLoggedIn }) {
           </NavButton>
           {menuOpen && (
             <NavList>
+              <NavButton as={Link} to="/">
+                Blogs
+              </NavButton>
               <NavButton
                 as={Link}
                 to="/sign-up"
