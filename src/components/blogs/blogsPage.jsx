@@ -30,9 +30,9 @@ export default function BlogsPage() {
 
   return (
     <main>
-      <Container>
-        <TitleBar>
-          <MediaMobileOnly>
+      <MediaMobileOnly>
+        <Container>
+          <PageTitleBar>
             <GeneralButton
               type="button"
               onClick={() => setIsMobileSearchOpen(!isMobileSearchOpen)}
@@ -42,8 +42,10 @@ export default function BlogsPage() {
             >
               {isMobileSearchOpen ? 'Close' : 'Search'}
             </GeneralButton>
-          </MediaMobileOnly>
-        </TitleBar>
+          </PageTitleBar>
+        </Container>
+      </MediaMobileOnly>
+      <Container>
         {isMobileSearchOpen && (
           // Form seemed sluggish on Firefox but only when touch simulation was turned on?
           <MediaMobileOnly>

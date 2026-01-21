@@ -21,19 +21,21 @@ export default function CommentsPage() {
 
   return (
     <main>
-      <PageTitleBar title="My Comments">
-        <MediaMobileOnly>
-          <GeneralButton
-            type="button"
-            onClick={() => setIsMobileSearchOpen(!isMobileSearchOpen)}
-            aria-label={
-              isMobileSearchOpen ? 'Close search form' : 'Show search form'
-            }
-          >
-            {isMobileSearchOpen ? 'Close' : 'Search'}
-          </GeneralButton>
-        </MediaMobileOnly>
-      </PageTitleBar>
+      <MediaMobileOnly>
+        <Container>
+          <PageTitleBar title="My Comments">
+            <GeneralButton
+              type="button"
+              onClick={() => setIsMobileSearchOpen(!isMobileSearchOpen)}
+              aria-label={
+                isMobileSearchOpen ? 'Close search form' : 'Show search form'
+              }
+            >
+              {isMobileSearchOpen ? 'Close' : 'Search'}
+            </GeneralButton>
+          </PageTitleBar>
+        </Container>
+      </MediaMobileOnly>
       <Container>
         {isMobileSearchOpen && (
           // Form seemed sluggish on Firefox but only when touch simulation was turned on?
@@ -45,6 +47,7 @@ export default function CommentsPage() {
         )}
         <Cols>
           <div>
+            <PageTitleBar title="Comments" />
             <CommentsList
               comments={comments}
               onReply={refresh}
