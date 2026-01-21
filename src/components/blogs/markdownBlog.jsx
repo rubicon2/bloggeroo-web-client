@@ -4,13 +4,13 @@ import styled from 'styled-components';
 const H1 = styled.h3`
   font-size: 2rem;
   margin: 1em 0;
-  border-bottom: 2px solid #00000020;
+  border-bottom: 1px solid var(--theme-soft-outline-color);
 `;
 
 const H2 = styled.h4`
   font-size: 1.6rem;
   margin: 1em 0;
-  border-bottom: 2px solid #00000020;
+  border-bottom: 1px solid var(--theme-soft-outline-color);
 `;
 
 const H3 = styled.h5`
