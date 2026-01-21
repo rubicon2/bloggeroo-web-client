@@ -61,8 +61,8 @@ export default function SignUpPage() {
 
   return (
     <main>
-      <PageTitleBar title="Sign Up" />
       <Container>
+        <PageTitleBar title="Sign Up" />
         {!signUpSuccessful && (
           <Form onSubmit={attemptSignUp}>
             <FormRow label="Email">

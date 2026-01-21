@@ -62,8 +62,8 @@ export default function ResetPasswordPage() {
 
   return (
     <main>
-      <PageTitleBar title="Reset Password" />
       <Container>
+        <PageTitleBar title="Reset Password" />
         {!resetSuccessful && (
           <Form onSubmit={resetPassword}>
             <FormRow label="Password">

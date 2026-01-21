@@ -90,8 +90,8 @@ export default function LogInPage() {
 
   return (
     <main>
-      <PageTitleBar title="Log In" />
       <Container>
+        <PageTitleBar title="Log In" />
         <Cols>
           <Form onSubmit={attemptLogIn}>
             <FormRow label="Email">

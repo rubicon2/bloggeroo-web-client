@@ -6,8 +6,8 @@ export default function ErrorPage() {
   const error = useRouteError();
   return (
     <main>
-      <PageTitleBar title="An error has occurred" />
       <Container>
+        <PageTitleBar title="An error has occurred" />
         <h3>{error.message}</h3>
         <p>{error.stack}</p>
       </Container>

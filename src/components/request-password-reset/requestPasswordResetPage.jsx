@@ -50,8 +50,8 @@ export default function RequestPasswordResetPage() {
 
   return (
     <main>
-      <PageTitleBar title="Reset Password" />
       <Container>
+        <PageTitleBar title="Reset Password" />
         {!resetSuccessful && (
           <Form onSubmit={requestPasswordReset}>
             <FormRow label="Email">

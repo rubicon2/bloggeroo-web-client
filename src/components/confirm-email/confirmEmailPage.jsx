@@ -7,8 +7,10 @@ export default function ConfirmEmailPage() {
   const error = useRouteError();
   return (
     <main>
-      <PageTitleBar title="Confirm Email" />
-      <Container>{error ? error.message : message}</Container>
+      <Container>
+        <PageTitleBar title="Confirm Email" />
+        {error ? error.message : message}
+      </Container>
     </main>
   );
 }
